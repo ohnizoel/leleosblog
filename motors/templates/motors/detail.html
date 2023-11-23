@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block title %} {{ motor.name }} {% endblock title %} {% block content %}
+    <h2>Detalhes do motor {{ motor.name }} ({{ motor.launch_year }})</h2>
+    
+    <section class="dados-de-filme">
+      {% if motor.motor_image %}
+      <img src="{{ motor.motor_image.url }}" alt="Foto do motor {{ motor.name}}" />
+      {% endif %}
+      <ul>
+        <li>Nome: {{ motor.name }}</li>
+        <li>Ano de Lançamento: {{ motor.launch_year }}</li>
+        <li>Impulso específico: {{ motor.specific_impulse }}</li>
+        <li>Impulso total: {{ motor.thrust }}</li>
+        <li>Massa: {{ motor.mass }}</li>
+        <li>Tempo de queima: {{ motor.burn_time }}</li>
+        <li>Propelente: {{ motor.propellant }}</li>
+        <li><a href="{% url 'motors:update' motor.id %}">Editar</a></li>
+        <li><a href="{% url 'motors:delete' motor.id %}">Apagar</a></li>
+      </ul>
+    </section>
+    
+    {% endblock content %}

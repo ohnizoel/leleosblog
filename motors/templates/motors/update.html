@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Atualizar Dados do Motor {{ motor.name }} ({{ motor.launch_year}}) {{specific_impulse}} {{thrust}} {{mass}} {{burn_time}} {{propellant}}</h2>
+<form method="post" action="{% url 'motors:update' motor.id%}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Atualizar</button>
+</form>
+{% endblock content %}

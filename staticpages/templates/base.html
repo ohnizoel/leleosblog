@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {% block title %}{% endblock %} | Watch that film!
+        {% block title %}{% endblock %} | Ignite that motor!
     </title>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
@@ -16,10 +16,10 @@
 
 <body>
     <header id="cabecalho-principal">
-        <a href="{% url 'index' %}"> <img src="{% static 'logo.svg' %}"> </a>
+        <a href="{% url 'index' %}"> <img  src="{% static 'rocket.gif' %}" class="logo"> </a>
         <nav id="navegacao-principal">
             <ul>
-                <li><a href="{% url 'movies:index' %}">Filmes</a></li>
+                <li><a href="{% url 'motors:index' %}">Motors</a></li>
                 <li><a href="{% url 'about' %}">Sobre</a></li>
             </ul>
         </nav>
@@ -30,8 +30,28 @@
         {% endblock content %}
     </main>
     <footer id="rodape-principal">
+        <link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css>
         <p>
-            <small>Copyright 2021</small>
+            <li>
+                <a target=_blank class=email href=mailto:leotvalente@usp.br>
+                    <i class="fa fa-fw fa-2x fa-envelope"></i>
+                </a>
+            </li>
+            <li>
+                <a target=_blank class=github href=https://github.com/ohnizoel>
+                    <i class="fa fa-fw fa-2x fa-github"></i>
+                </a>
+            </li>
+            <li>
+                <a target=_blank class=youtube href=https://www.linkedin.com/in/leotvalente>
+                    <i class="fa fa-fw fa-2x fa-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a target=_blank class=instagram href=https://www.instagram.com/leo_tvalente/>
+                <i class="fa fa-fw fa-2x fa-instagram"></i>
+    </a></li>
+    
         </p>
     </footer>
 </body>

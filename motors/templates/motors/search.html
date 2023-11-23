@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Busca de Filmes por Nome</h2>
-<form action="{% url 'movies:search' %}">
+<h2>Busca de Motors por Nome</h2>
+<form action="{% url 'motors:search' %}">
     <p>
         <label for="id_query">Título:</label>
         <input type="text" name="query" id="id_query" />
@@ -12,17 +12,17 @@
 
 
 <h2>Resultado da Busca</h2>
-{% if movie_list %}
+{% if motor_list %}
 <section class="lista-de-cards">
-    {% for movie in movie_list %}
+    {% for motor in motor_list %}
     <article class="card">
-        <img src="{{ movie.poster_url }}" alt="Poster do filme {{ movie.name}}">
-        <p>{{ movie.name }} ({{ movie.release_year }})</p>
+        <img src="{{ motor.poster_url }}" alt="Foto do motor {{ motor.name}}">
+        <p>{{ motor.name }} ({{ motor.launch_year }})</p>
     </article>
     {% endfor %}
 </section>
 {% else %}
-<p>Não foi encontrado nenhum filme para a busca.</p>
+<p>Não foi encontrado nenhum motor para a busca.</p>
 {% endif %}
 
 {% endblock content %}

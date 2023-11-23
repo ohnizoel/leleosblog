@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Todos os Motores</h2>
+<section>
+  <p>
+    Muitos resultados? <a href="{% url 'motors:search' %}">Buscar Motores</a>
+  </p>
+  <p>
+    Não encontrou o motor?
+    <a href="{% url 'motors:create' %}">Adicionar Novo Motor</a>
+  </p>
+</section>
+{% if motor_list %}
+<section class="lista-de-cards">
+  {% for motor in motor_list %}
+  <article class="card">
+    <a href="{% url 'motors:detail' motor.id %}"> 
+      <img src="{{ motor.poster_url }}" alt="Foto do motor {{ motor.name}}"
+    /></a>
+    <p>{{ motor.name }} ({{ motor.launch_year }})</p>
+  </article>
+  {% endfor %}
+</section>
+{% else %}
+<p>Não foi encontrado nenhum motor.</p>
+{% endif %} {% endblock content %}
