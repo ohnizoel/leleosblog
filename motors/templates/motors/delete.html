@@ -3,8 +3,7 @@
 <form action="{% url 'motors:delete' motor.id %}" method="post">
   {% csrf_token %}
   <p>
-    Você tem certeza que deseja apagar o motor "{{ motor.name }} ({{
-    motor.launch_year }})"?
+    Você tem certeza que deseja apagar o motor {{ motor.name }} ({{ motor.launch_year }})?
   </p>
   <button type="submit">Apagar</button>
 </form>

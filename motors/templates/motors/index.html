@@ -14,8 +14,12 @@
   {% for motor in motor_list %}
   <article class="card">
     <a href="{% url 'motors:detail' motor.id %}"> 
-      <img src="{{ motor.poster_url }}" alt="Foto do motor {{ motor.name}}"
-    /></a>
+      {% if motor.motor_image %}
+      <img src="{{ motor.motor_image.url }}" alt="Foto do motor {{ motor.name}}" />
+      {% else %}
+      <p>No Image</p>
+      {% endif %}
+    </a>
     <p>{{ motor.name }} ({{ motor.launch_year }})</p>
   </article>
   {% endfor %}

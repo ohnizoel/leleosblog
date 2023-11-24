@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Comentar Motor {{ motor.name }} ({{ motor.launch_year }})</h2>
+
+<form action="{% url 'motors:comment' motor.id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Postar Comentário</button>
+</form>
+
+<p><a href="{% url 'motors:detail' motor.id %}">Voltar para a página do motor</a></p>
+{% endblock content %}

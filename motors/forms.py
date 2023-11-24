@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Motor
+from .models import Motor, Comment
 
 class MotorForm(ModelForm):
     class Meta:
@@ -13,7 +13,6 @@ class MotorForm(ModelForm):
             'mass',
             'burn_time',
             'propellant',
-            'poster_url',
             'motor_image',
         ]
         labels = {
@@ -24,6 +23,17 @@ class MotorForm(ModelForm):
             'mass': 'Massa',
             'burn_time': 'Tempo de queima',
             'propellant': 'Propelente',
-            'poster_url': 'URL do Poster',
             'motor_image': 'Imagem do Motor',
+        }
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = [
+            'author',
+            'text',
+        ]
+        labels = {
+            'author': 'Autor',
+            'text': 'Comentário',
         }

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Criar Categoria
+{% endblock title %}
+
+{% block content %}
+<h2>Criar Categoria</h2>
+
+<form action="{% url 'motors:create-category' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Criar</button>
+</form>
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block title %} {{ motor.name }} {% endblock title %} {% block content %}
     <h2>Detalhes do motor {{ motor.name }} ({{ motor.launch_year }})</h2>
     
-    <section class="dados-de-filme">
+    <section class="dados-de-motor">
       {% if motor.motor_image %}
       <img src="{{ motor.motor_image.url }}" alt="Foto do motor {{ motor.name}}" />
       {% endif %}
@@ -13,9 +13,32 @@
         <li>Massa: {{ motor.mass }}</li>
         <li>Tempo de queima: {{ motor.burn_time }}</li>
         <li>Propelente: {{ motor.propellant }}</li>
+        {% if motor.category_set.all %}
+            <li>Incluso nas categorias: {{ motor.category_set.all|join:", " }} </li>
+        {% endif %}
         <li><a href="{% url 'motors:update' motor.id %}">Editar</a></li>
         <li><a href="{% url 'motors:delete' motor.id %}">Apagar</a></li>
       </ul>
     </section>
-    
+    <hr>
+    <a href="{% url 'motors:comment' motor.pk %}"><button>Crie ser comentário</button></a>
+<section>
+    <header>
+        <h3>Comentários</h3>
+    </header>
+    <ul>
+        {% if motor.comment_set.all %}
+            {% for comment in motor.comment_set.all %}
+                <figure class="comment">
+                    <blockquote>
+                        "{{ comment.text }}"
+                    <figcaption>—{{ comment.author }}  ({{ comment.date }})</figcaption>
+                    </blockquote>
+                  </figure>
+            {% endfor %}
+        {% else %}
+            <p>Ainda não existe nenhum comentário para este motor.</p>
+        {% endif %}
+    </ul>
+</section>
     {% endblock content %}
