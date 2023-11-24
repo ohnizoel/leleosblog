@@ -7,29 +7,16 @@ Categorias
 {% block content %}
 <h2>Categorias de Motores</h2>
 
-<section>
+<section class="category_list">
     {% for category in category_list %}
-    <hr>
-    <article>
-        <header>
+    <article class="cetegory-card">
+            <a href="{% url 'motors:category_detail' category.id %}">
             <h3>{{category.name}}</h3>
-        </header>
-        <div class="lista-de-cards">
-            {% for motor in category.motors.all %}
-            <div class="card">
-                <a href="{% url 'motors:detail' motor.id %}">
-                    {% if motor.motor_image %}
-                    <img src="{{ motor.motor_image.url }}" alt="Foto do motor {{ motor.name}}"/>
-                    {% endif %}
-                </a>
-                <p>{{ motor.name }} ({{ motor.release_year }})</p>
-            </div>
-            {% endfor %}
-        </div>
+            </a>
     </article>
     {% endfor %}
-
+</section>
+<section class="category_list">
     <a href="{% url 'motors:create-category' %}"><button>Crie sua Categoria</button></a>
 </section>
-
 {% endblock content %}

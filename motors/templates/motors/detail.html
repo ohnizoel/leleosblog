@@ -1,10 +1,14 @@
-{% extends 'base.html' %} {% block title %} {{ motor.name }} {% endblock title %} {% block content %}
+{% extends 'base.html' %}{% block content %}
+{% load static %}
     <h2>Detalhes do motor {{ motor.name }} ({{ motor.launch_year }})</h2>
     
     <section class="dados-de-motor">
-      {% if motor.motor_image %}
-      <img src="{{ motor.motor_image.url }}" alt="Foto do motor {{ motor.name}}" />
-      {% endif %}
+        {% if motor.motor_image %}
+        <img src="{{ motor.motor_image.url }}" alt="Foto do motor {{ motor.name}}" />
+        {% endif %}
+        {% if not motor.motor_image %}
+        <img  src="{% static 'noimage.png' %}">
+        {% endif %}
       <ul>
         <li>Nome: {{ motor.name }}</li>
         <li>Ano de Lançamento: {{ motor.launch_year }}</li>

@@ -17,12 +17,14 @@
 <body>
     <header id="cabecalho-principal">
         <a href="{% url 'index' %}"> <img  src="{% static 'rocket.gif' %}" class="logo"> </a>
-        <nav id="navegacao-principal">
-            <ul>
-                <li><a href="{% url 'motors:index' %}">Motors</a></li>
-                <li><a href="{% url 'motors:category' %}">Categorias</a></li> 
-                <li><a href="{% url 'about' %}">Sobre</a></li>
-            </ul>
+        <h1>LeleosBlog</h1>
+        <nav id="navegacao-principal" class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><img src="{% static 'nav.png' %}"></a>
+            <div class="dropdown-content">
+                    <a href="{% url 'motors:index' %}">Motors</a>
+                    <a href="{% url 'motors:category' %}">Categorias</a>
+                    <a href="{% url 'about' %}">Sobre</a>
+            </div>
         </nav>
 
     </header>

@@ -126,3 +126,7 @@ class CategoryCreateView(generic.CreateView):
     template_name = 'motors/create_category.html'
     fields = ['name', 'motors']
     success_url = reverse_lazy('motors:category')
+
+class CategoryDetailView(generic.DetailView):
+    model = Category
+    template_name = 'motors/category_detail.html'

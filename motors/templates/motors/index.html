@@ -16,8 +16,9 @@
     <a href="{% url 'motors:detail' motor.id %}"> 
       {% if motor.motor_image %}
       <img src="{{ motor.motor_image.url }}" alt="Foto do motor {{ motor.name}}" />
-      {% else %}
-      <p>No Image</p>
+      {% endif %}
+      {% if not motor.motor_image %}
+      <img  src='../static/noimage.png' class="logo">
       {% endif %}
     </a>
     <p>{{ motor.name }} ({{ motor.launch_year }})</p>
